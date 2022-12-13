@@ -7,7 +7,6 @@ import Filters from './Filters';
 function App() {
 
   const [dataApi, setDataApi] = useState([]);
-  const [name, setName] = useState("");
   const [filterByName, setFilterByName] = useState('');
 
 
@@ -20,28 +19,21 @@ function App() {
   }, []);
 
   //FUNCIONES HANDLE
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
-  };
-
-
-  const handleInputName = (ev) => {
-    setName(ev.target.value);
-  }
 
   const handleFilterName = (value) => {
     setFilterByName(value);
   };
 
+  const CharactersFiltered = dataApi.filter((character) => {
+    return character.name.includes(filterByName);
+  });
+
   return (
     <div className="App">
     <h1 className="title">Rick & Morty</h1>
-    <form action="" className="formulario" onSubmit={handleSubmit}>
-      <label htmlFor="name">Nombre:</label>
-      <input className="input" type="text" id="name" onChange={handleInputName} value={name}/>
-    </form>
+    
     <Filters handleFilterName={handleFilterName} />
-    <CharactersList characters={dataApi} />
+    <CharactersList characters={CharactersFiltered} />
     </div>
   );
 }

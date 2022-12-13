@@ -1,7 +1,16 @@
 
 const FilterByName = (props) => {
     const handleChange = (ev) => {
-      props.handleFilterName(ev.target.value); // la función handleFilterGenderse ejecuta en esta función (lifting), por eso se especifica el ev.target.value aquí, y así le envía los datos a la madre.
+      props.handleFilterName(ev.target.value); 
     };
+
+    return(
+        
+        <form action="" className="formulario" >
+            <label htmlFor="name">Nombre:</label>
+            <input className="input" type="text" id="name" onChange={handleChange} />
+        </form>
+        
+    )
 }
     export default FilterByName;
