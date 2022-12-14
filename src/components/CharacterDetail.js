@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function CharacterDetail(props) {
     console.log(props);
@@ -5,7 +6,7 @@ function CharacterDetail(props) {
       <li className="card__detail">
           <img
             className="card__img"
-            src={props.character.photo}
+            src={props.character.photo }
             alt={`Foto de ${props.character.name}`}
             title={`Foto de ${props.character.name}`}
           />
@@ -25,6 +26,7 @@ function CharacterDetail(props) {
           <p>
             {props.character.status}
           </p>
+          <Link to="/">Volver a la página de inicio</Link>
       </li>
     );
   }
