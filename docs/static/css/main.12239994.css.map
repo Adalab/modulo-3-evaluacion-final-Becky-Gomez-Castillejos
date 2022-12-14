@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.12239994.css","mappings":"AAAA,KACE,iBAAkB,CAClB,UACE,aAAe,CAEhB,OAKD,aADA,WACa","sources":["template/style/App.scss"],"sourcesContent":[".App {\n  text-align: center;\n  &-logo {\n    height : 40vmin;\n    \n  }\n}\n\n.title {\n  width: 400px;\n  height: 300px;\n}\n\n\n"],"names":[],"sourceRoot":""}
