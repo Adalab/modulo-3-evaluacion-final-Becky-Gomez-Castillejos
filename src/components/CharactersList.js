@@ -4,6 +4,7 @@ import CharacterItem from "./CharacterItem";
 const CharactersList = ({ characters }) => {
     const CharactersElements = characters.map((character) => {
       return <CharacterItem character={character} />;
+          
     });
   
     return (
