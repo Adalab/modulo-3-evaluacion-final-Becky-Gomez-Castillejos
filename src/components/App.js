@@ -9,17 +9,12 @@ import CharacterDetail from "./CharacterDetail";
 function App() {
   const [dataApi, setDataApi] = useState([]);
   const [filterByName, setFilterByName] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  //USEEFFECT
 
   useEffect(() => {
     getDataFromAPI().then((cleanData) => {
       setDataApi(cleanData);
     });
   }, []);
-
-  //FUNCIONES HANDLE
 
   const handleFilterName = (value) => {
     setFilterByName(value);
@@ -28,14 +23,16 @@ function App() {
   
 
   const CharactersFiltered = dataApi.filter((character) => {
-    return character.name.toLowerCase().includes(filterByName.toLowerCase());
+
+      return character.name.toLowerCase().includes(filterByName.toLowerCase());
+
   });
 
-  const error = () => {
-    if(CharactersFiltered !== filterByName) {
+  /*const error = () => {
+    if(CharactersFiltered === false) {
       return setErrorMessage("No coincide con ninguno de los personajes");
     }
-  }
+  }*/
 
   const { pathname } = useLocation();
 
@@ -49,7 +46,6 @@ function App() {
   return (
     <div className="App">
       <img src="https://i.pinimg.com/originals/be/42/d8/be42d893690195636c47a571b70b4190.jpg" alt="Rick & Morty" className="title"/>
-      <p>{errorMessage}</p>
       <Routes>
         <Route
           path="/"
