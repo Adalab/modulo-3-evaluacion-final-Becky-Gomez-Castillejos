@@ -5,7 +5,7 @@ const FilterByName = (props) => {
   };
 
   const handleSubmit = (ev) => {
-    ev.preventDefault(hola);
+    ev.preventDefault();
   }
 
   return (
