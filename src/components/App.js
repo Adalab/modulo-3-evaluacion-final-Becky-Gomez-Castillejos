@@ -48,7 +48,7 @@ function App() {
           element={
             <>
               <Filters handleFilterName={handleFilterName} filterByName={filterByName} />
-              <CharactersList characters={CharactersFiltered} />
+              <CharactersList characters={CharactersFiltered} filterByName={filterByName} />
             </>
           }
         />
