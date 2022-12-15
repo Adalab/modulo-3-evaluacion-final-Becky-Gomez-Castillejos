@@ -9,6 +9,7 @@ import CharacterDetail from "./CharacterDetail";
 function App() {
   const [dataApi, setDataApi] = useState([]);
   const [filterByName, setFilterByName] = useState("");
+  
 
   useEffect(() => {
     getDataFromAPI().then((cleanData) => {
@@ -23,21 +24,16 @@ function App() {
   
 
   const CharactersFiltered = dataApi.filter((character) => {
-
-      return character.name.toLowerCase().includes(filterByName.toLowerCase());
+    
+      return character.name.toLowerCase().includes(filterByName.toLowerCase())
 
   });
 
-  /*const error = () => {
-    if(CharactersFiltered === false) {
-      return setErrorMessage("No coincide con ninguno de los personajes");
-    }
-  }*/
 
   const { pathname } = useLocation();
 
   const dataUrl = matchPath("/detail/:characterId", pathname);
-  console.log(dataUrl);
+  //console.log(dataUrl);
   const characterId = dataUrl !== null ? dataUrl.params.characterId : null;
   const characterFound = dataApi.find(
     (user) => user.id === parseInt(characterId)
@@ -51,7 +47,7 @@ function App() {
           path="/"
           element={
             <>
-              <Filters handleFilterName={handleFilterName} />
+              <Filters handleFilterName={handleFilterName} filterByName={filterByName} />
               <CharactersList characters={CharactersFiltered} />
             </>
           }

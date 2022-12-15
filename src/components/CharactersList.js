@@ -9,7 +9,7 @@ const CharactersList = ({ characters }) => {
   
     return (
       <section>
-        <ul>{CharactersElements}</ul>
+        <ul className="list">{CharactersElements}</ul>
       </section>
     );
   };

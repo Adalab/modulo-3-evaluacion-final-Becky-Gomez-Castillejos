@@ -7,8 +7,17 @@
 }
 
 .title {
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 500px;
+}
+
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-left: 50px;
 }
 
 
