@@ -9,6 +9,7 @@ import CharacterDetail from "./CharacterDetail";
 function App() {
   const [dataApi, setDataApi] = useState([]);
   const [filterByName, setFilterByName] = useState("");
+  const [filterByEpisode, setFilterByEpisode] = useState(0);
   
 
   useEffect(() => {
@@ -17,17 +18,30 @@ function App() {
     });
   }, []);
 
+  const handleNumberEpisode = (ev) => {
+    setFilterByEpisode(ev);
+  }
+
   const handleFilterName = (value) => {
     setFilterByName(value);
   };
 
   
 
-  const CharactersFiltered = dataApi.filter((character) => {
+  const CharactersFiltered = dataApi
+  .filter((character) => {
     
       return character.name.toLowerCase().includes(filterByName.toLowerCase())
-
-  });
+  
+  }) .filter((character) => {
+    if(filterByEpisode === 0) {
+      return true
+    } else {
+      return character.episodes === parseInt(filterByEpisode)
+    }
+    
+  }
+  );
 
 
   const { pathname } = useLocation();
@@ -47,7 +61,7 @@ function App() {
           path="/"
           element={
             <>
-              <Filters handleFilterName={handleFilterName} filterByName={filterByName} />
+              <Filters handleFilterName={handleFilterName} filterByName={filterByName} handleNumberEpisode={handleNumberEpisode} filterByEpisode={filterByEpisode} />
               <CharactersList characters={CharactersFiltered} filterByName={filterByName} />
             </>
           }
